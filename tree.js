@@ -41,29 +41,32 @@ const find=(tree,node)=>{
     }
     return undefined;
 }
-const removeNode=(tree,node)=>{
+const removeNode=(node)=>{
+    if (!node.parent){
+        return node=null
+    }
     const siblings=node.parent.children;
-    let index=0;
     for (let i=1;i<siblings.length;i++){
         if (siblings[i]===node){
-            index=i;
+            siblings.splice(i,1);//是一个数组，所以要把房间给删掉，不能直接等于null
         }
     }
-    siblings.splice(index,1);//是一个数组，所以要把房间给删掉，不能直接等于null
 }
 const tree = createTree(10);
 const node2=addChild(tree,20);
 const node3=addChild(tree,30);
 const node4=addChild(tree,40);
 const node5=addChild(tree,50);
-
-const node6=addChild(node4,100);
-const node7=addChild(node4,200);
-const node8=addChild(node4,300);
-console.log(tree);
-const fn=node=>{
-    console.log(node.data);
-}
-removeNode(node4,node7);
-travel(tree,fn);
-const result=find(tree,node6);
+//
+// const node6=addChild(node4,100);
+// const node7=addChild(node4,200);
+// const node8=addChild(node4,300);
+// console.log(tree);
+// const fn=node=>{
+//     console.log(node.data);
+// }
+// removeNode(node4,node7);
+// travel(tree,fn);
+// const result=find(tree,node6);
+removeNode(tree);
+console.log(tree)

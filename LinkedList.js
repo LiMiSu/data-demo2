@@ -59,10 +59,10 @@ const list = createList(10);//只是一时的根节点，并不是一整条链�
 const node2 = appendList(list, 20);
 const node3 = appendList(list, 30);
 const node4 = appendList(list, 40);
-console.log(list);
+// console.log(list);
 let result = removeFromList(list, node3);
 // console.log(result);
-console.log(list);
+// console.log(list);
 
 
-travelList( list, node => {console.log(node.data);} );
+// travelList( list, node => {console.log(node.data);} );
